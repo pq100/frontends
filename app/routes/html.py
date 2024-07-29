@@ -32,3 +32,8 @@ async def layout(req: Request):
 @html_router.get('/table')
 async def layout(req: Request):
     return templates.TemplateResponse('html/05table.html', {'request': req})
+
+
+@html_router.get('/image')
+async def layout(req: Request):
+    return templates.TemplateResponse('html/06image.html', {'request': req})

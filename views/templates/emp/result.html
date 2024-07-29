@@ -5,6 +5,22 @@
     <title>사원 등록 처리 결과</title>
 </head>
 <body>
+
+<table border="1" cellpadding="5">
+    <colgroup>
+        <col width ="100px">
+        <col width ="100px">
+        <col width ="100px">
+        <col width ="100px">
+    </colgroup>
+    <tr>
+        <th>이름</th> <th>국어</th> <th>영어</th> <th>수학</th> <th>총점</th> <th>평균</th> <th>학점</th>
+    </tr>
+    <tr align="center">
+        <td>{ sj.name }</td> <td>{ sj.kor }</td> <td>{ sj.eng }</td> <td>{ sj.mat }</td> <td>{ sj.tot }</td>
+        <td>{ sj.avg }</td> <td>{ sj.grd }</td>
+    </tr>
+<!--
     <h1>사원 등록 처리 결과</h1>
     <p>사원번호: {{ emp.empid }}</p>
     <p>이름: {{ emp.fname }}</p>
@@ -16,6 +32,32 @@
     <p>급여: {{ emp.sal }}</p>
     <p>수당: {{ emp.comm }}</p>
     <p>상사번호: {{ emp.mgrid }}</p>
-    <p>부서번호: {{ emp.deptid }}</p>
+    <p>부서번호: {{ emp.deptid }}</p> -->
+
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <colgroup>
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+            <col width ="100px" style="text-align: center;">
+        </colgroup>
+        <tr>
+            <th>사원번호</th> <th>이름</th> <th>성</th> <th>이메일</th> <th>입사일</th>
+            <th>직책</th> <th>급여</th> <th>수당</th> <th>상사번호</th> <th>부서번호</th>
+        </tr>
+
+        <tr>
+            <th>{{ emp.empid }}</th> <th>{{ emp.fname }}</th> <th>{{ emp.lname }}</th> <th>svmo2@gmail.com</th> <th>2024-01-05</th>
+            <th>주임</th> <th>2,885,650원</th> <th>14,230</th> <th>010-6674-2216</th> <th>02-6072-5158</th>
+        </tr>
+    </table>
+
 </body>
+
 </html>
