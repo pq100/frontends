@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>프로젝트1</title>
+    <style>
+        /* header, nav, main, footer를 함께 제어하기 위해 컨테이너 요소 생성 */
+        #container { border: 1px solid red;
+        width: 1080px; ,margin: 0 auto; }
+
+        /* header */
+        header { border: 1px solid darkred; }
+
+        /* nav */
+        nav { border: 1px solid darkgreen; }
+
+        /* main */
+        main { border: 1px solid darkviolet; }
+
+        /* footer */
+        footer { border : 1px solid darkcyan; }
+    </style>
 
 </head>
 <body>
+<div id="container">
 <header>
     <h1>로고</h1>
     <ul>
@@ -98,5 +116,6 @@
     </div>
     <div>Copyrights &copy; 2024. snicuz. All Rights Reserved.</div>
 </footer>
+</div>
 </body>
 </html>
