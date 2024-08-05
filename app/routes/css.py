@@ -59,5 +59,6 @@ async def markdown(req: Request):
     return templates.TemplateResponse('css/11markdown.html', {'request': req})
 
 @css_router.get('/bootstrap')
-async def markdown(req: Request):
+async def bootstrap(req: Request):
     return templates.TemplateResponse('css/12bootstrap.html', {'request': req})
+
