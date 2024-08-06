@@ -170,11 +170,17 @@
     <p>이름, 국어, 영어, 수학을 초기화시켜서
         총점, 평균을 계산한 뒤 결과 출력 </p>
     <script>
-        let kor = 98
-        let eng = 95
-        let mat = 97
+        name = '홍길동';
+        let kor = 99;
+        let eng = 98;
+        let mat = 99;
 
-        document.write()
+        let tot = kor + eng + mat;
+        let avg = tot / 3;
+
+        document.write(`이름: ${name}, 국어: ${kor}, 영어: ${eng}, 수학: ${mat},`, '<br>');
+        document.write(`총점: ${tot}, 평균: ${avg}`, '<br>');
+
     </script>
 
 
