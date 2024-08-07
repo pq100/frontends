@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>반복문</title>
 </head>
+<style>
+    table { width: 500px; border: 1px solid black;
+        border-collapse: collapse; }
+    .tb th, .tb td { border: 1px solid black; padding: 10px; text-align: center }
+</style>
 <body>
     <h1>반복문</h1>
     <h2>개요</h2>
@@ -84,13 +89,30 @@
         }
     </script>
 
-    <script>
-        // 구구단 출력
-    </script>
+<!--    <script>-->
+<!--        // 구구단 출력-->
+<!--        let first = 0;-->
+<!--        let second = 0;-->
+<!--        for (let i = 1; i <= 9; i++) {-->
+<!--            for (let j = 1; j <= 9; j++) {-->
+<!--                document.write(`${i} X ${j} = ${i * j}` ,'<br>');-->
 
-    <h2>break</h2>
-    <p>원하는 시점에 반복문이나 코드블록에서
-        벗어나기 위해 사용</p>
+
+<!--            }-->
+<!--        }-->
+
+<!--    </script>-->
+
+<!--    <table class="tb">-->
+<!--        <tr><th>1단</th><th>2단</th><th>3단</th><th>4단</th><th>5단</th><th>6단</th><th>7단</th><th>8단</th><th>9단</th></tr>-->
+<!--        <tr><td>1 x 1 </td><td>99</td><td>98</td><td>99</td></tr>-->
+<!--        <tr><td>?</td><td>54</td><td>77</td><td>87</td></tr>-->
+<!--        <tr><td>?</td><td>78</td><td>45</td><td>32</td></tr>-->
+<!--    </table>-->
+
+<!--    <h2>break</h2>-->
+<!--    <p>원하는 시점에 반복문이나 코드블록에서-->
+<!--        벗어나기 위해 사용</p>-->
 
     <script>
         // 1 ~ 1000까지의 총합을 계산
@@ -104,6 +126,56 @@
         }
                 document.write(`${sum}, ${cnt},`, '<br>');
     </script>
+
+<h2>for-in</h2>
+<p>열거 가능한 객체의 속성을 순회해서 값을 다루고 싶을 때 사용하는 반복문</p>
+<p>for (변수 in 객체)</p>
+<p>반복 실행할 코드</p>
+<p>}</p>
+
+<script>
+    const person = { //객체 변수
+      name: '혜교',
+      age: 99,
+      email: 'abc123@987xyz.co.kr'
+    };
+    document.write(person['name'], '<br>')
+    document.write(person['age'], '<br>')
+    document.write(person['email'], '<br>')
+    for (let key in person) {
+        document.write(`${key} : ${person[key]}`, '<br>');
+    }
+</script>
+
+
+<h2>for-of</h2>
+<p>ES6에 추가된 반복문으로, 배열, 문자열, Map, Set 등의
+    이터러블 객체의 값을 순차적으로 순회할 때 사용하는 반복문</p>
+<p>이터러블 객체: 순차적으로 값들이 저장된 개체를 의미,
+    따라서, 데이터 처리시 순서가 중요시 됨</p>
+<p>for(변수 or 이터러블객체) {</p>
+<p>반복 실행할 코드</p>
+<p>}</p>
+
+<script>
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+    const say = 'Hello, World!!';
+
+    for (let i = 0; i < 5; ++i) {
+        document.write(`${colors[i]}`, '<br>');
+    } // 명령어 코드
+
+    for (let color of colors) {
+        document.write(`${color}`, '<br>');
+    } // 선언형 코드
+
+    for (let char of say) {
+        document.write(`${char}`, ' ')
+    }
+
+
+</script>
+
 
 
 </body>
