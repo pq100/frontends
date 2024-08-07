@@ -44,3 +44,7 @@ async def while1(request: Request):
 @jscript_router.get('/function')
 async def function(request: Request):
     return templates.TemplateResponse('js/08function.html', {'request': request})
+
+@jscript_router.get('/callback')
+async def callback(request: Request):
+    return templates.TemplateResponse('js/09callback.html', {'request': request})
