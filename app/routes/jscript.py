@@ -40,3 +40,7 @@ async def array(request: Request):
 @jscript_router.get('/while')
 async def while1(request: Request):
     return templates.TemplateResponse('js/07while.html', {'request': request})
+
+@jscript_router.get('/function')
+async def function(request: Request):
+    return templates.TemplateResponse('js/08function.html', {'request': request})
