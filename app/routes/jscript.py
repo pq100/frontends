@@ -32,3 +32,7 @@ async def condition(request: Request):
 @jscript_router.get('/loop')
 async def loop(request: Request):
     return templates.TemplateResponse('js/05loop.html', {'request': request})
+
+@jscript_router.get('/array')
+async def array(request: Request):
+    return templates.TemplateResponse('js/06array.html', {'request': request})
