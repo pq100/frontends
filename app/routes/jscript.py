@@ -1,4 +1,7 @@
+import sqlite3
+
 from fastapi import APIRouter, Request
+from starlette.responses import JSONResponse
 from starlette.templating import Jinja2Templates
 
 # 라우터 생성
@@ -64,3 +67,65 @@ async def dom(request: Request):
 @jscript_router.get('/zipcode')
 async def zipcode(request: Request):
     return templates.TemplateResponse('js/16zipcode.html', {'request': request})
+
+@jscript_router.get('/ajaxzip')
+async def ajaxzip(request: Request):
+    return templates.TemplateResponse('js/17ajaxzip.html', {'request': request})
+
+@jscript_router.get('/zip2013')
+async def zip2013(request: Request):
+    return templates.TemplateResponse('js/17ajaxzip.html', {'request': request})
+
+@jscript_router.get('/getsido')
+# http://127.0.0.1:8000/js/getsido
+async def getsido(request: Request):
+    conn = sqlite3.connect('app/schema/python.db')
+    cursor = conn.cursor()
+    sql = 'select distinct sido from zipcode2013'
+    cursor.execute(sql)
+    sidos = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    # 조회된 결과를 json으로 저장
+    result = []
+    for sido in sidos:
+        result.append({'sido': sido[0]})
+
+    return JSONResponse(content=result)
+
+@jscript_router.get('/getgugun')
+# http://127.0.0.1:8000/js/getgugun?sido=서울
+async def getgugun(sido: str):
+    # zipcode 테이블에서 구군 조회
+    conn = sqlite3.connect('app/schema/python.db')
+    cursor = conn.cursor()
+    sql = 'select distinct gugun from zipcode2013 where sido = ?'
+    cursor.execute(sql, (sido,))
+    guguns = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    # 조회된 결과를 json으로 저장
+    result = []
+    for gugun in guguns:
+        result.append({'gugun': gugun[0]})
+
+    return JSONResponse(content=result)
+
+
+@jscript_router.get('/getdong')
+# http://127.0.0.1:8000/js/getdong?sido=서울&gugu=강남구
+async def getdong(sido: str, gugu: str):
+    # zipcode 테이블에서 읍면동 조회
+    conn = sqlite3.connect('app/schema/python.db')
+    cursor = conn.cursor()
+    sql = 'select distinct dong from zipcode2013 where sido = ? and gugun = ?'
+    cursor.execute(sql, (sido, gugu, ))
+    dongs = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    # 조회된 결과를 json으로 저장
+    result = []
+    for dong in dongs:
+        result.append({'dong': dong[0]})
+
+    return JSONResponse(content=result)
