@@ -60,3 +60,7 @@ async def bom(request: Request):
 @jscript_router.get('/dom')
 async def dom(request: Request):
     return templates.TemplateResponse('js/12dom.html', {'request': request})
+
+@jscript_router.get('/zipcode')
+async def zipcode(request: Request):
+    return templates.TemplateResponse('js/16zipcode.html', {'request': request})
